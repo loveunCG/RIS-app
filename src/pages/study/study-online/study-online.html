@@ -1,0 +1,37 @@
+<!--
+  Generated template for the StudyOnlinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>在线视频教学</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+      <ion-row wrap>
+        <ion-col *ngFor="let col of studyService.onlineData" col-6>
+          <div *ngIf="col.lession_status == 1 || col.lession_doctor == user_id">
+            <online-video  (click)='onClick(col.lession_doctor,col.lession_title, col.lession_id, col.lession_status )'
+              txtName="{{col.usr_name}}"
+              txtTitle="{{col.lession_title}}"
+             > 
+            </online-video>
+          </div>
+          <div *ngIf="col.lession_status != 1 &&  col.lession_doctor != user_id" style="opacity:0.5">
+            <online-video   (click)='onClick(col.lession_doctor,col.lession_title, col.lession_id, col.lession_status )'
+              txtName="{{col.usr_name}}"
+              txtTitle="{{col.lession_title}}"
+              >
+            </online-video>
+          </div>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

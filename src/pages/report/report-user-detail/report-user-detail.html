@@ -1,0 +1,68 @@
+<!--
+  Generated template for the ReportUserDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>报告详情</ion-title>
+     <ion-buttons end *ngIf="!usr_role" >
+      <button ion-button (click)="onViewImage()">
+          <img src="./assets/imgs/dicom.png" style="width:2em"  >
+      </button>
+    </ion-buttons>
+  </ion-navbar>    
+</ion-header>
+<ion-content>
+  <ion-toolbar   *ngIf="usr_role" class="toolbar-image-buttons">
+      <button ion-button color="primary2" [attr.disabled]="(usr_DicomView) ? null:''" (click)="onViewImage();"><div><i class="fa fa-eye"></i><br>调图</div></button>
+      <button ion-button color="primary2" [attr.disabled]="(booking_data.booking_status == 2 && usr_MakeReport) ? null:''" (click)="onReport();"><div><i class="fa fa-file-text-o"></i><br>报告</div></button>
+      <!-- <button ion-button color="primary2" [attr.disabled]="(usr_IntelligentDiagnosis) ? null:''" (click)="onIntelligence();"><div><i class="fa fa-user-md"></i><br>智能诊断</div></button> -->
+      <button ion-button color="primary2" disabled="true"  (click)="onIntelligence();"><div><i class="fa fa-user-md"></i><br>智能诊断</div></button>
+      <button ion-button color="primary2" [disabled]="!usr_RemoteDiagnosis||booking_data.booking_status == 4" (click)="onRemote();"><div><i class="fa fa-tty"></i><br>远程咨询</div></button>
+  </ion-toolbar>
+  <ion-list>
+    <ion-item><ion-label col-3>影像号:</ion-label><ion-label col-9>{{booking_data.image_num}}</ion-label></ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item><ion-label col-3>姓名:</ion-label><ion-label col-9>{{booking_data.patient_name}}</ion-label></ion-item>
+    <ion-item><ion-label col-3>性别:</ion-label><ion-label col-9>{{booking_data.patient_gender==1 ? '男':'女'}}</ion-label></ion-item>
+    <ion-item><ion-label col-3>年龄:</ion-label><ion-label col-9>{{booking_data.patient_age}}</ion-label></ion-item>
+    <ion-item><ion-label col-3>身份证号:</ion-label><ion-label col-9>{{booking_data.license_num}}</ion-label></ion-item>
+    <ion-item><ion-label col-3>接入医院:</ion-label><ion-label col-9>{{booking_data.hostipal_name}}</ion-label></ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor = "let check of booking_data.check_list">
+            <ion-item>检查设备: {{check.checkup_equipment}}</ion-item>
+            <ion-item>检查部位: {{check.checkup_item}}</ion-item>
+            <ion-item>检查日期: {{check.checkup_time}}</ion-item>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item><ion-label col-3> 报告状态:</ion-label><ion-label col-9>{{aryStatus[booking_data.booking_status]}}</ion-label></ion-item>
+    <ion-item><ion-label col-3> 申请医生:</ion-label><ion-label col-9>{{booking_data.req_doctor_name}}</ion-label></ion-item>
+    <ion-item *ngIf = "booking_data.report_doc_name; 'hidden'" ><ion-label col-3> 报告医生:</ion-label><ion-label col-9>{{booking_data.report_doc_name}}</ion-label></ion-item>
+      <ion-item *ngIf = "booking_data.doctor_name; 'hidden'" ><ion-label col-3> 审核医生:</ion-label><ion-label col-9>{{booking_data.doctor_name}}</ion-label></ion-item>
+  </ion-list>
+  <div *ngIf = "booking_data.Imaging_performance; 'hidden'" class="info-box">
+      <div class="title">影像所见</div>
+      <div class="content space" text-wrap>{{booking_data.Imaging_performance}}</div>
+  </div>
+  <div *ngIf = "booking_data.recommend_report; 'hidden'" class="info-box">
+      <div class="title">影像诊断</div>
+      <div class="content space" text-wrap>{{booking_data.recommend_report}}</div>
+  </div>
+  <div *ngIf = "history_data; 'hidden'" class="info-box">
+    <div class="title">历史检查</div>
+    <div class="content">
+        <ion-list *ngFor = "let history of history_data">
+            <ion-item *ngFor = "let check of history.check_list">
+                <ion-item>检查设备: {{check.checkup_equipment}}</ion-item>
+                <ion-item>检查部位: {{check.checkup_item}}</ion-item>
+                <ion-item>检查日期: {{check.checkup_time}}</ion-item>
+            </ion-item>
+        </ion-list>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,75 @@
+<!--
+  Generated template for the StatisticsMinePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title>诊断报告统计</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-buttons>
+              <button ion-button class="date" outline color="primary2"  (click)='onClickChart(0)'>日统计</button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col>
+            <ion-buttons>
+              <button ion-button  class="date" outline color="primary2" (click)='onClickChart(1)'>月统计</button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col>
+            <ion-buttons>
+              <button ion-button  class="date" outline color="primary2" (click)='onClickChart(2)'>年统计</button>
+            </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- <div style="margin:auto; width:80%">
+        <ion-item>
+            <ion-label>接入医院</ion-label>
+            <ion-select >
+              <ion-option value >{{}}</ion-option>
+            </ion-select>
+          </ion-item>
+    </div> -->
+    <div style="margin:auto; width:80%">
+        <ion-item>
+            <ion-label>病院来源</ion-label>
+            <ion-select (ionChange) = "typechange($event)">
+              <ion-option value="0">全部</ion-option>
+              <ion-option value="1">CT</ion-option>
+              <ion-option value="2">DR</ion-option>
+              <ion-option value="3">MR</ion-option>
+              <ion-option value="3">UR</ion-option>
+            </ion-select>
+        </ion-item>
+    </div>
+    <div class="select_date">
+      <ion-title >
+          <ion-datetime *ngIf="datetype==0" displayFormat="YYYY-MM" [(ngModel)]="mydatePart" (ionChange) = "changedate(mydatePart)"></ion-datetime>
+          <ion-datetime *ngIf="datetype==1" displayFormat="YYYY" [(ngModel)]="mydatePart" (ionChange) = "changedate(mydatePart)"></ion-datetime>
+          <ion-label *ngIf="datetype==2">年度统计</ion-label>
+      </ion-title>
+    </div>
+    
+    <div class="graph_content">
+        <ion-scroll scrollX="true" style="white-space: nowrap; height: 100%; overflow: hidden;">
+            <canvas id="canvas" style="height:15em; width: auto"  
+                    baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"></canvas>
+                    <!-- (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)" -->
+              </ion-scroll>
+    </div>
+</ion-content>

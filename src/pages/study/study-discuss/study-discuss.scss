@@ -1,0 +1,17 @@
+page-study-discuss {
+    $left-width:80px;
+    .row_title{
+        display: table;
+        width: 100%;
+        .top_title_left{
+            display: table-cell;
+            width:$left-width;
+        }
+        .top_title_right{
+            display: table-cell;
+            width: calc(100% - 80px);
+            text-align: center;
+            
+        }
+    }
+}

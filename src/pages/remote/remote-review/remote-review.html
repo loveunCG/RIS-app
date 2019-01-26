@@ -1,0 +1,80 @@
+<!--
+  Generated template for the RemoteReviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>申请审核</ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- <ion-footer>
+    <div class="bottom_bar">
+        约2名
+    </div>
+</ion-footer> -->
+
+<ion-content padding>
+    <ion-grid>
+      <ion-row>
+          <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+          </ion-searchbar>
+      </ion-row>
+      <ion-row class="buttons">
+        <ion-col><button ion-button color="primary2" (click)="onClickReview(1)">已提交</button></ion-col>
+        <ion-col><button ion-button color="primary3" (click)="onClickReview(3)">已拒绝</button></ion-col>
+        <ion-col><button ion-button color="primary4" (click)="onClickReview(4)">已拒绝</button></ion-col>
+      </ion-row>
+      <!-- <ion-row class="buttons">
+          <ion-col><button ion-button color="primary2" (click)='onClickReview()'>已提交</button></ion-col>
+          <ion-col><button ion-button color="primary3" (click)='onClickReview()'>已接受</button></ion-col>
+          <ion-col><button ion-button color="primary4" (click)='onClickReview()'>已拒绝</button></ion-col>
+          <ion-col><button ion-button color="primary6" (click)='onClickReview()'>已结束</button></ion-col>
+        </ion-row> -->
+      <!-- <ion-row class="buttons">
+          <ion-col><button ion-button color="primary7" (click)='onClickReview()'>远程会诊</button></ion-col>
+          <ion-col><button ion-button color="primary8" (click)='onClickReview()'>远程门诊</button></ion-col>
+          <ion-col></ion-col>
+          <ion-col></ion-col>
+        </ion-row> -->
+        <ion-row text-center class="duration m-b-10">
+            <from-to-date title="提交时间" #submitDuration></from-to-date>
+        </ion-row>
+        <ion-row text-center class="duration">
+          <from-to-date title="审核时间" #examDuration></from-to-date>
+        </ion-row>
+    </ion-grid>
+    <button ion-button round block color="primary2" class="btn-primary" (click)="onSearch()">查 询</button>
+  
+    <ion-list class="patients">
+      <ion-item *ngFor="let item of dataSevice.remoteData" (click)="openContactDetail(item.contact_id)">
+        <div class="patient-icon">
+          <ion-icon name="" item-start class="{{item.patient_gender==1?'male':'female'}}">
+            <i class="fa fa-male"></i>
+          </ion-icon>
+        </div>
+        <div class="patient-name">
+          <h2>{{item.patient_name}}</h2>
+          <p>{{item.patient_age}}岁</p>
+        </div>
+        <div *ngIf="item.contact_type == 1 " class="patient-summary">
+          <!-- {{item.contact_type}} -->
+          远程会诊
+        </div>
+        <div *ngIf="item.contact_type == 2 " class="patient-summary">
+            <!-- {{item.contact_type}} -->
+            远程门诊
+        </div>
+        <div  *ngIf="item.contact_status == 1 " class="patient-result" >
+          已提交
+        </div>       
+        <div *ngIf="item.contact_status == 3 " class="patient-result">
+          已拒绝
+        </div>        
+        <div *ngIf="item.contact_status == 4 " class="patient-result">
+          已拒绝
+        </div>
+      </ion-item>
+      </ion-list>
+</ion-content>

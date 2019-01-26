@@ -1,0 +1,26 @@
+<!--
+  Generated template for the StudyDataSharePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>资料共享</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <!-- <ion-item *ngFor="let item of datashareList" > -->
+      <div class="div_upload_info" (click) ="onClickList(hosname)" style="margin-left:10px">
+          <div class="div_icon"><i class="fa fa-folder"></i></div>
+          <div class="div_name" text-wrap style="font-size: 1em">{{hosname}}</div>
+      </div>      
+    <!-- </ion-item> -->
+  </ion-list>
+</ion-content>

@@ -1,0 +1,25 @@
+page-report-user-detail-image {
+    #backround{
+        background-color: rgb(83, 85, 87);
+    }
+
+    #dicomImage{
+        height:50%;        
+        width:90%;
+        margin:10px auto;
+        position:relative;
+        color: aliceblue
+    }
+    #mrtopleft{
+        position: absolute;top:10px; left:10px
+    }
+    #mrtopright{
+        position: absolute;top:10px; right:10px ;
+    }
+    #mrbottomright{
+        position: absolute;bottom:-20px; right:10px
+    }
+    #mrbottomleft{
+        position: absolute;bottom:-20px; left:10px
+    }
+}

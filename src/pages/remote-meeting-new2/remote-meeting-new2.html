@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>远程会诊</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      远程会诊
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="remoteSubmit">
+        <ion-list>
+          <ion-item>
+            <ion-label  item-start color="primary2">影像号:&nbsp;&nbsp;</ion-label>
+            <ion-input formControlName="image_num" [value]="dataSevice.remoteDetail.remoteData.image_num"></ion-input>
+            <button ion-button item-end icon-only color="primary2" [disabled]="!this.dataSevice.isSave" (click) = "patientSearch()">
+              <ion-icon name="search"></ion-icon>
+            </button>
+          </ion-item>
+          <ion-input type="hidden" formControlName="patient_id" [value]="dataSevice.remoteDetail.remoteData.patient_id"></ion-input>
+          <ion-item> 姓名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{dataSevice.remoteDetail.remoteData.patient_name}}</ion-item>
+          <ion-item>性别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{dataSevice.remoteDetail.remoteData.patient_gender
+            == '0'?'男':dataSevice.remoteDetail.remoteData.patient_gender==1?'女':''}}</ion-item>
+          <ion-item>年龄:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{dataSevice.remoteDetail.remoteData.patient_age!=''?dataSevice.remoteDetail.remoteData.patient_age+'岁':''}}</ion-item>
+          <ion-item> 身份证号:&nbsp;&nbsp;{{dataSevice.remoteDetail.remoteData.license_num}}</ion-item>
+          <!-- <ion-list>
+            <ion-item>
+              <button item-start ion-button icon-left color="primary2" (click)="presentActionSheet()">
+                <ion-icon name="camera"></ion-icon>附件上传
+              </button>
+              <button item-end ion-button icon-left color="primary2" (click)="presentActionSheet()">
+                <ion-icon name="camera"></ion-icon>影像上传
+              </button>
+            </ion-item>
+          </ion-list> -->
+          <ion-list>
+            <ion-item no-lines class="m-b-10">
+              <ion-label item-start color="primary2"  >病情描述:</ion-label>
+              <ion-textarea  formControlName="disease_summary" disabled="{{isremoteflag}}" [value]="dataSevice.remoteDetail.remoteData.disease_summary!=''?dataSevice.remoteDetail.remoteData.disease_summary:''"></ion-textarea>
+            </ion-item>
+            <ion-item no-lines class="m-b-10">
+              <ion-label item-start color="primary2">基本病史:</ion-label>
+              <ion-textarea formControlName="medical_history" disabled="{{isremoteflag}}" [value]="dataSevice.remoteDetail.remoteData.medical_history!=''?dataSevice.remoteDetail.remoteData.medical_history:''"></ion-textarea>
+            </ion-item>
+            <ion-item no-lines class="m-b-10">
+              <ion-label item-start color="primary2">咨询提问:</ion-label>
+              <ion-textarea formControlName="contact_problem" disabled="{{isremoteflag}}" [value] = "dataSevice.remoteDetail.remoteData.contact_problem!=''?dataSevice.remoteDetail.remoteData.contact_problem:''"></ion-textarea>
+            </ion-item>
+          </ion-list>
+        </ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 text-left>
+              <button ion-button color="primary2" (click)="onSave()" [disabled]="!this.dataSevice.isSave" icon-start>
+                <ion-icon name='cube'></ion-icon>
+                保 存
+              </button>
+            </ion-col>
+            <ion-col col-6 text-right>
+              <button ion-button color="primary2" [disabled]="!remoteSubmit.valid" (click)="onNext()" icon-end>
+                下一步
+                <ion-icon name='arrow-dropright'></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { OnlineVideoComponent } from './online-video/online-video';
+import { DiscussUserComponent } from './discuss-user/discuss-user';
+import { UserItemComponent } from './user-item/user-item';
+import { FromToDateComponent } from './from-to-date/from-to-date';
+
+@NgModule({
+	declarations: [OnlineVideoComponent,
+    DiscussUserComponent,
+    UserItemComponent,
+    FromToDateComponent,
+   ],
+	imports: [],
+	exports: [OnlineVideoComponent,
+    DiscussUserComponent,
+    UserItemComponent,
+    FromToDateComponent, 
+    ]
+})
+export class ComponentsModule {}

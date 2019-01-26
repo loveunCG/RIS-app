@@ -1,0 +1,87 @@
+<!--
+  Generated template for the ReportUserDetailReportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>诊断报告</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="template()">
+        <ion-icon  name="md-list-box" color="primary2" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div>
+    <table>
+      <caption>基本信息</caption>
+      <tr><td>影像号</td><td>{{report_detail.image_num}}</td></tr>
+      <tr><td>姓名</td><td>{{report_detail.patient_name}}</td></tr>
+      <tr><td>性别</td><td>{{gender[report_detail.patient_gender]}}</td></tr>
+      <tr><td>年龄</td><td>{{report_detail.patient_age}}</td></tr>
+      <tr><td>检查日期</td><td>{{report_detail.checked_time}}</td></tr>
+      <tr><td>检查项目</td><td>{{report_detail.check_list}}</td></tr>
+    </table>
+  </div>
+  <form [formGroup]="reportSubmit">
+      <div class="info-box">
+        <div class="title">影像学表现</div>
+        <div class="content">
+          <ion-textarea rows="5" cols="36" formControlName="imagePerformance" ></ion-textarea>
+        </div>
+      </div>
+      <div class="info-box">
+          <div class="title">建议</div>
+          <div class="content">
+            <ion-textarea rows="5" cols="36" formControlName="imageRecommand"></ion-textarea>
+          </div>
+      </div>
+      <div class="info-box">
+        <div class="title">临床诊断</div>
+        <div class="content">
+          <ion-textarea rows="5" cols="36" formControlName="imageImpression"></ion-textarea>
+        </div>
+      </div>
+      <div class="info-box">
+        <div class="title">阴阳性</div>
+        <div class="content">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-4 ><input type="radio" formControlName="positive_status" value="2" [checked]="this.positivestatus==2">阴性</ion-col>
+              <ion-col col-4 ><input type="radio" formControlName="positive_status" value="1" [checked]="this.positivestatus==1">阳性</ion-col>
+              <ion-col col-4 ><input type="radio" formControlName="positive_status" value="3" [checked]="this.positivestatus==3">未知</ion-col>
+            </ion-row>
+           <ion-row>
+              <ion-col col-4>危急性：</ion-col>
+              <ion-col col-3><input type="radio" formControlName="urgency_status" value="0" [checked]="this.urgencystatus==0">是</ion-col>
+              <ion-col col-3><input type="radio" formControlName="urgency_status" value="1" [checked]="this.urgencystatus==1">否</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-4>图像评级：</ion-col>
+              <ion-col col-6>
+                <select formControlName="image_degree">
+                  <option value="1" [selected]="this.imagedegree==1">甲</option>
+                  <option value="2" [selected]="this.imagedegree==2" >乙</option>
+                  <option value="3" [selected]="this.imagedegree==3">丙</option>
+                </select>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6 text-center><button ion-button color="primary2" [disabled]="!showSaveButton" (click)="onSave()">保存</button></ion-col>
+          <ion-col col-6 text-center><button ion-button color="primary2" [disabled]="!showSubmitButton||!reportSubmit.valid" (click)="onSubmit()">提交</button></ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+</ion-content>

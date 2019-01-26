@@ -1,0 +1,14 @@
+page-tab-home {
+    ion-col button{
+        height:36vw;
+    }
+    .button-ios, .button-md, .button-wp{
+        height:36vw;
+    }
+    ion-col button .fa{
+        font-size: 40px;
+    }
+    ion-col button div{
+        padding:20px;
+    }
+}

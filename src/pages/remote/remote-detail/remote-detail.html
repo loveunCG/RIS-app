@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>申请详情</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>申请医生：&nbsp;&nbsp;&nbsp;&nbsp; {{dataSevice.remoteDetail.doctorName}}</ion-item>
+        <ion-item>申请医院：&nbsp;&nbsp;&nbsp;&nbsp; {{dataSevice.remoteDetail.hosName}}</ion-item>
+        <!-- <ion-item>会诊专家：&nbsp;&nbsp;&nbsp;&nbsp;</ion-item> -->
+        <ion-item>会诊日期：&nbsp;&nbsp;&nbsp;&nbsp; {{dataSevice.remoteDetail.remoteData.set_check_time}}</ion-item>
+        <ion-item>&nbsp;&nbsp;&nbsp;&nbsp;影像号：&nbsp;&nbsp;&nbsp;&nbsp;{{dataSevice.remoteDetail.remoteData.image_num}}</ion-item>
+        <ion-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：&nbsp;&nbsp;&nbsp;&nbsp;{{dataSevice.remoteDetail.remoteData.patient_name}}</ion-item>
+        <ion-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别：&nbsp;&nbsp;&nbsp;&nbsp;{{dataSevice.remoteDetail.remoteData.patient_gender==1?'男':'女'}}</ion-item>
+        <ion-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年龄：&nbsp;&nbsp;&nbsp;&nbsp;{{dataSevice.remoteDetail.remoteData.patient_age}}</ion-item>
+        <ion-item>身份证号：&nbsp;&nbsp;&nbsp;&nbsp; {{dataSevice.remoteDetail.remoteData.patient_id}}</ion-item>
+        <ion-list>
+          <ion-item no-lines class="m-b-10">
+            <ion-label item-start color="primary2"  >病情描述:</ion-label>
+            <ion-textarea   disabled [value]="dataSevice.remoteDetail.remoteData.disease_summary!=''?dataSevice.remoteDetail.remoteData.disease_summary:''"></ion-textarea>
+          </ion-item>
+          <ion-item no-lines class="m-b-10">
+            <ion-label item-start color="primary2">基本病史:</ion-label>
+            <ion-textarea  disabled [value]="dataSevice.remoteDetail.remoteData.medical_history!=''?dataSevice.remoteDetail.remoteData.medical_history:''"></ion-textarea>
+          </ion-item>
+          <ion-item no-lines class="m-b-10">
+            <ion-label item-start color="primary2">咨询提问:</ion-label>
+            <ion-textarea  disabled [value] = "dataSevice.remoteDetail.remoteData.contact_problem!=''?dataSevice.remoteDetail.remoteData.contact_problem:''"></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </ion-list>
+      <button ion-button round block color="primary2" [hidden]="!isremoteflag" [disabled] = "dataSevice.remoteDetail.remoteData.contact_status != 1" (click)="onReview(dataSevice.remoteDetail.remoteData.contact_id)" class="btn-primary m-b-20" >
+        审&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;核</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

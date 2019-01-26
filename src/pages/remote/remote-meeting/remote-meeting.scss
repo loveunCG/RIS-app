@@ -1,0 +1,72 @@
+page-remote-meeting {
+    ion-navbar ion-icon{
+        font-size: 30px;
+        color: $primary-color;
+    }
+    .buttons .col{
+        text-align:center;
+        padding: 6px 0;
+    }
+    .duration{
+        display: table;
+        vertical-align: middle;
+    }
+    ion-row .button{
+        border-radius:50%;
+        font-size:12px;
+        width:15vw;
+        height:15vw;
+    }
+    ion-list {
+      margin: -1px 0 0px;
+    }
+    ion-row input{
+        border: 1px solid #222;
+        padding: 4px 10px;
+        width:30%;
+    }
+    .patients .label{
+        display: table;
+        font-size: 12px;
+        .patient-icon{
+            display: table-cell;
+            vertical-align: middle;
+            width: 14vw;
+            ion-icon{
+                border-radius:50%;
+                width:11vw;
+                height:11vw;
+                .fa{
+                    font-size: 6vw;
+                    color:#fff;
+                    margin-top:2vw;
+                    margin-left:4vw;
+                }
+            }
+            .male{
+                background-color:#488aff;
+            }
+            .female{
+                background-color:#e6535b;
+            }
+        }
+        .patient-name{
+            display: table-cell;
+            vertical-align: middle;
+            width: 15vw;
+        }
+        .patient-summary{
+            display: table-cell;
+            vertical-align: middle;
+            width: 56vw;
+        }
+        .patient-result{
+            display: table-cell;
+            vertical-align: middle;
+            width: 15vw;
+        }
+    }
+    .patients .item-block{
+        padding-left:0;
+    }
+}

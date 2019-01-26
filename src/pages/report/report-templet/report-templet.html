@@ -1,0 +1,44 @@
+<!--
+  Generated template for the ReportListPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>报告模板</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item-group  *ngFor="let device of templateDeivceList;  let i=index" >
+      <ion-item-divider color="light" (click)="deviceClick(i)">{{device.equipment_type}}</ion-item-divider>
+          <ion-item  [hidden]="i != devicenameflag || !isdevice" *ngFor="let tclass of templateClassList; let j = index" >
+            <ion-grid>
+                <ion-row>
+                    <ion-col (click)="classClick(device.equipment_type,tclass.class_id, j)">{{tclass.class_name}}</ion-col>
+                    <ion-col></ion-col>
+                    <ion-col></ion-col>
+                    <ion-col style="font-size: 12px; color:blue" (click)="subClassAdd(device.equipment_type,tclass.class_id, j)">添加</ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-item [hidden]="j != classflag || !isclass"  *ngFor="let tsclass of templatesubclasslist; let k=index" >
+              <!-- {{tsclass.template_subclass_name}} -->
+              <ion-grid>
+                  <ion-row>
+                      <ion-col (click)="subclassClick(device.equipment_type,tsclass.template_subclass_id, k)">{{tsclass.template_subclass_name}}</ion-col>
+                      <ion-col></ion-col>
+                      <ion-col></ion-col>
+                      <ion-col style="font-size: 12px; color:blue" (click)="newtemplate(device.equipment_type,tclass.class_name, tsclass.template_subclass_name,tsclass.template_subclass_id)">设定</ion-col> 
+                  </ion-row>
+              </ion-grid>
+              <ion-item [hidden]="k != subclassindex || !issubclass"  *ngFor="let contentname of templatecontentList">
+                <p (click)="contentClick(device.equipment_type,tsclass.template_subclass_id, k)">{{contentname.template_content_title}}</p>
+                <button ion-button clear item-end  style="width:25%; font-size: 12px; color:blue" (click)="eidttemplate(device.equipment_type,tclass.class_name, tsclass.template_subclass_name,tsclass.template_subclass_id, k)">编辑</button> 
+              </ion-item>
+            </ion-item>
+          </ion-item> 
+    </ion-item-group>
+</ion-content>

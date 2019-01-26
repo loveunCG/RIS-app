@@ -1,0 +1,29 @@
+from-to-date {
+    .content{
+        display: table;
+        font-size:13px;
+        .title{
+            display: table-cell;
+            width: 60px;
+        }
+        .seg{
+            display: table-cell;    
+            width: 20px;
+        }
+        .from{
+            display: table-cell;
+            width:130px;   
+            text-align: center         
+        }
+        .to{
+            display: table-cell;
+            width:130px;            
+        }
+        input{
+            border: 1px solid #222;
+            padding: 4px 10px;
+            width:100%;
+        }
+    }
+    
+}

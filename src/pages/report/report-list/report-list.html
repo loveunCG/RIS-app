@@ -1,0 +1,63 @@
+<!--
+  Generated template for the ReportListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>报告列表</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-footer>
+    <div class="bottom_bar">
+        约{{filteredData.length}}名
+    </div>
+</ion-footer>
+
+<ion-content padding>
+    <ion-grid>
+      <ion-row class="m-b-10">
+          <ion-searchbar [(ngModel)]="inpFilter" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+      </ion-row>
+      <ion-row class="m-b-10">
+        <ion-segment [(ngModel)]="source" class="m-r-10">
+          <ion-segment-button value="0">门诊</ion-segment-button>
+          <ion-segment-button value="1">住院</ion-segment-button>
+          <ion-segment-button value="2">体检</ion-segment-button>
+        </ion-segment>
+        <ion-segment [(ngModel)]="status">
+          <ion-segment-button value="2">已检查</ion-segment-button>
+          <ion-segment-button value="4">已审核</ion-segment-button>
+        </ion-segment>
+      </ion-row>
+      <ion-row text-center class="m-b-10">
+          <ion-segment [(ngModel)]="checkup_type" class="img-btns">
+            <ion-segment-button value="MR"><img src="./assets/imgs/mri.png" style="max-width: 50%;"><div>MRI</div></ion-segment-button>
+            <ion-segment-button value="DR"><img src="./assets/imgs/dr.png" style="max-width: 50%;"><div>DR</div></ion-segment-button>
+            <ion-segment-button value="fangsin"><img src="./assets/imgs/fangsin.png" style="max-width: 50%;"><div>放射</div></ion-segment-button>
+            <ion-segment-button value="wave"><img src="./assets/imgs/wave.png" style="max-width: 50%;"><div>彩超</div></ion-segment-button>
+            <ion-segment-button value="CT"><img src="./assets/imgs/ct.png" style="max-width: 50%;"><div>CT</div></ion-segment-button>
+          </ion-segment>
+      </ion-row>
+      <ion-row text-center>
+        <from-to-date title="检查时间" #comDuration></from-to-date>
+      </ion-row>
+      <ion-row>
+        <ion-col><button ion-button round block color="primary2" class="btn-primary" (click)='onSearch()'>查 询</button></ion-col>
+        <ion-col><button ion-button round block color="primary2" class="btn-primary" (click)='onClearSearch()'>清空</button></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-list>
+      <ion-item *ngFor = "let user of filteredData; let i = index" (click)='onClickUser(user.booking_id)'>
+        <user-item strName="{{user.patient_name}}"
+                    strSex="{{user.patient_gender==1?'male':'female'}}"
+                    nAge={{user.patient_age}}
+                    strSummary=""
+                    strStatus="{{aryStatus[user.booking_status]}}"
+                    ></user-item>
+      </ion-item>
+    </ion-list>
+</ion-content>

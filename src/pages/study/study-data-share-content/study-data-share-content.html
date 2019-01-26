@@ -1,0 +1,43 @@
+<!--
+  Generated template for the StudyDataSharePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar style="height:5em">
+    <ion-title style="margin-top:10px">分享资料</ion-title>
+    <ion-buttons  end><div (click)="makeFolder()" ><ion-icon name="md-add" style="margin-right:10px;   font-size: 1.7em" color="primary2"></ion-icon></div></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+
+          <ion-col col-6>
+            <button ion-button (click)="sharepreve()" color="primary2" style="margin-left: 2%;">
+                  <i class="fa fa-chevron-circle-left"></i>上次</button>
+          </ion-col >
+          <ion-col col-6>
+            <button ion-button color="primary2" (click)='fileselect()' style="margin-left: 46%;">
+                <i class="fa fa-upload"></i>上传</button>
+          </ion-col>
+
+    </ion-buttons>  
+  </ion-toolbar>
+</ion-footer>
+
+<ion-content>
+    <ion-item  *ngFor="let item of datashareContet">
+      <div *ngIf="!item.isFolder" class="div_upload_info"  (click)="download(item.name)">
+          <div class="div_icon1" color="primary2"><i class="fa fa-file" ></i></div>
+          <div class="div_name" text-wrap style="font-size: 1em">{{item.name}}</div>
+      </div>  
+      <div *ngIf="item.isFolder" class="div_upload_info" (click)="onClickList(item.name)">
+          <div class="div_icon"><i class="fa fa-folder"></i></div>
+          <div class="div_name" text-wrap style="font-size: 1em">{{item.name}}</div>
+      </div>  
+      <button ion-button clear item-end  style="font-size: 15px;" (click)="sharesetting(item.name)">    
+        <i class="fa fa-gear"></i>设置 </button>   
+    </ion-item>
+</ion-content>

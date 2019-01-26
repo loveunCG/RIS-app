@@ -1,0 +1,36 @@
+discuss-user {
+    font-size: 14px;
+    .du_info{
+        display: table;
+        width:100%;
+        .du_avatar{
+            width:10vw;
+            display: table-cell;
+            height:10vw;
+            border-radius:50%;
+        }
+        .du_name_date{
+            vertical-align: top;
+            padding: 0 0 0 10px;
+            display: table-cell;
+            width:calc(100% - 20vw);
+        }
+        .du_comment{
+            vertical-align: top;
+            display: table-cell;
+            width:10vw;
+        }
+    }
+    .du_content{
+        display: table;
+        width:100%;
+        .du_left{
+            display: table-cell;
+            width: 10vw;
+        }
+        .du_right{
+            padding: 0 0 0 10px;
+            width:calc(100% - 10vw);
+        }
+    }
+}

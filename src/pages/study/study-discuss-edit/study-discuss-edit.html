@@ -1,0 +1,56 @@
+<!--
+  Generated template for the StudyDiscussPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>留言</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="postSubmit">
+    <ion-item>
+      <ion-label>title</ion-label>
+      <ion-input type="text" formControlName="posttitle" id='posttitle'></ion-input>
+    </ion-item>
+    <div></div>
+    <ion-item>
+      <ion-label>content</ion-label>
+      <ion-textarea id="postcontent" formControlName="postcontent" class="textarea"></ion-textarea>
+    </ion-item>
+  </form>
+  <ion-grid>
+      <ion-row *ngIf="buttonflag">
+        <ion-col >
+          <button ion-button color="primary2" [disabled]="!isauthor"  (click)="delpost()">
+            删除
+          </button>
+        </ion-col>
+        <ion-col >
+            <button ion-button color="primary2" [disabled]="isauthor"  (click)="addcomment()">
+              注释
+            </button>
+        </ion-col>
+        <ion-col >
+          <button ion-button color="primary2" [disabled]="!isauthor" (click)="editpost()">
+            汇编
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="!buttonflag">
+          <ion-col>
+          </ion-col>
+          <ion-col col-6 text-left>
+            <button ion-button color="primary2" icon-end (click)="addpost()">
+                留言
+            </button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,63 @@
+page-report-user-detail {
+    
+    ion-toolbar{
+        border-top: 1px solid #aaa;
+        .fa{
+            font-size:40px;
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+        .button{
+            width:calc((100% - 28px)/4);
+            height: auto;
+            padding-bottom: 10px;
+            font-size: 12px;            
+        }        
+    }
+    .toolbar-image-buttons{
+        height: auto;
+        border-bottom: 1px solid #AAA;
+    }    
+    ion-list{
+        .label{
+            margin: 0;
+            font-size:13px;
+        }
+        .item-block{
+            min-height: 0;
+        }
+    } 
+    .detail_table{
+        border:1px solid #AAA;
+        width:100%;
+        margin:0;
+        border-collapse: collapse;
+        thead th{
+            background-color:#009688;
+            text-align:center;
+            border: 1px solid #AAA;
+        }
+        tbody td{
+            text-align: center;
+            border: 1px solid #AAA;
+        }
+    }
+    .info-box{
+        margin:0 10px 10px 10px;
+        .title{
+            border: 1px solid #AAA;
+            background-color: $primary-color;
+            height: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .content{            
+            border: 1px solid #AAA;
+            max-height: 40vh;
+            overflow-y: auto;
+        }
+        .space{
+            min-height: 80px;
+        }
+    }
+}

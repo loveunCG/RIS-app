@@ -1,0 +1,9 @@
+{
+  "urlServer":"120.55.63.29:5001",
+  "urlLogin":"/api/auth/login",
+  "urlSendSMS":"/api/auth/sendSMS",
+  "urlRegister":"/api/auth/register",
+  "urlCheckDuplication":"/api/auth/checkduplication",
+  "urlReportList":"/api/report/reportlist",
+  "urlCheckAuth":"/api/report/checkauth"
+}

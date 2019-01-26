@@ -1,0 +1,767 @@
+{
+ "내려보내는 보안자료": {
+    "usr_id": "유저아이디",
+    "usr_role": "유저역할",
+    "usr_name": "유저이름",
+    "usr_hospital": "유저가 속한 병원이름",
+    "usr_phone_num": "유저전화번호",
+    "usr_is_doctor": "유저가 의사 인가를 판정",
+    "doctor_role":{
+            "DicomView" : "다이콤뷰 권한",
+            "MakeReport" : "보고서 작성 권한",
+            "IntelligentDiagnosis" : "지능형 진단 권한",
+            "RemoteDiagnosis" :  "원격진단 권한",
+            "MyReport" : "나의보고서",
+            "AuditReport" : "심사 보고서",
+            "Audit" : "심사",
+            "InitiateConsultation" : "상담 시작",
+            "RemoteOutpatient" : "원격진료소",
+            "RemoteConsultation" : "원격 상담",
+            "MyAdvice" : "나의 의견",
+            "ContactStart" : "상담 시작",
+            "RemoteConsultationReview" : "원격상담 검토",
+            "DeliContact" : "검토 상담",
+            "OnlineVideoTeaching" : "온라인 비디오 교육",
+            "ExchangeDiscussionArea" : "포럼",
+            "DataSharing" : "데이터 공유"
+    }
+},
+  "보고서상태":{
+    "1":"예약됨",
+    "2":"검사됨",
+    "3":"보고서제출됨",
+    "4":"심의됨",
+    "5":"심의가 기각됨",
+    "6":"검사중",
+    "7":"초록이 작성됨"
+  },
+    "보고서리스트페지":{
+        "apiList":{
+            "보고서 상세보기":{
+                "apiUri":"api/report/reportdetail?booking_id=",
+                "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                  "cur_data":{
+                    "pb_booking_id": "예약 아이디",
+                    "image_num": "화상번호",
+                    "patient_name": "환자 이름",
+                    "patient_gender":  "환자성별",
+                    "patient_type": "환자형태",
+                    "patient_age": "환자나이",
+                    "license_num": "신분중번호",
+                    "booking_status": "예약상태",
+                    "hospital_name": "접수한 병원이름",
+                    "usr_role" : "의사의 권한",
+                    "is_doctor": "환자인가 의사인가",
+                    "check_list":{
+                        "checkup_equipment": "검사설비",
+                        "checkup_status":"검사상태",
+                        "checkup_item":"검사부위"  ,
+                        "checkup_cost": "검사비용"
+                        },
+                    "req_doctor_name": "예약의사이름",
+                    "report_doc_name": "보고서작성의사이름",
+                    "doctor_name":  "심의한 의사이름",
+                    "Imaging_performance":"영상소견",
+                    "clinical_diagnosis":"림상학적진단"
+
+                    },"history": {
+                    "booking_id": "예약 아이디",
+                    "image_num": "화상번호",
+                    "patient_name": "환자 이름",
+                    "patient_gender":  "환자성별",
+                    "patient_type": "환자형태",
+                    "patient_age": "환자나이",
+                    "license_num": "신분중번호",
+                    "booking_status": "예약상태",
+                    "hospital_name": "접수한 병원이름",
+                    "check_list":{
+                        "checkup_equipment": "검사설비",
+                        "checkup_status":"검사상태",
+                        "checkup_item":"검사부위"  ,
+                        "checkup_cost": "검사비용"
+                        },
+                    "req_doctor_name": "예약의사이름",
+                    "report_doc_name": "보고서작성의사이름",
+                    "doctor_name":  "심의한 의사이름",
+                    "Imaging_performance":"영상소견",
+                    "clinical_diagnosis":"림상학적진단"
+                    }
+                }
+            },
+            "보고서리스트(검색포함)":{
+                "apiUri":"api/report/reportlist?patient_source&booking_stauts&booking_time&(starttime, endtime)",
+                "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                    "booking_id": "예약 아이디",
+                    "image_num": "화상번호",
+                    "patient_name": "환자 이름",
+                    "patient_gender":  "환자성별",
+                    "patient_type": "환자형태",
+                    "patient_age": "환자나이",
+                    "license_num": "신분중번호",
+                    "booking_status": "예약상태",
+                    "hospital_name": "접수한 병원이름"
+                }
+            },
+            "보고서작성(들어갈때)":{
+                "apiUri":"api/report/reportingview?booking_id=",
+                "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                    "booking_id": "예약 아이디",
+                    "image_num": "화상번호",
+                    "patient_name": "환자 이름",
+                    "patient_gender":  "환자성별",
+                    "patient_type": "환자형태",
+                    "patient_age": "환자나이",
+                    "license_num": "신분중번호",
+                    "booking_status": "예약상태",
+                    "hospital_name": "접수한 병원이름",
+                    "check_list":{
+                        "checkup_equipment": "검사설비",
+                        "checkup_status":"검사상태",
+                        "checkup_item":"검사부위"  ,
+                        "checkup_cost": "검사비용"
+                    }
+                }
+            },
+
+            "보고서작성요청":{
+                "apiUri":"api/report/reporting?booking_id=&report_id=",
+                "return":"만일 성공하면 ture, 아니면 false값을 반환한다(report_id==null이면 새로작성, 아니면 갱신)",
+                "data":{
+                    "booking_id": "예약 아이디",
+                    "report_doc_name": "보고서 작성의사",
+                    "recommend_report": "보고서내용",
+                    "impression": "화상소견",
+                    "urgency_status": "급성인가 만성인가",
+                    "positive_status": "양성인가 음성인가",
+                    "image_degree": "화상등급"
+
+                }
+            },
+            "인증을 위한 검사":{
+                "apiUri":"api/report/checkauth",
+                "return":"인증이 성공하면 201응답, 그렇지 않으면 401응답",
+                "data":{
+                    "msg":"ok"
+                }
+            },
+            "다이콤화상리스트보기":{
+                "apiUri":"api/report/dicomListView?image_num=",
+                "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                    "dicom":"다이콤화상"
+                }
+            }
+        }
+    },
+    "나의 보고서리스트페지":{
+        "apiList":{
+            "보고서 상세보기":{
+                "apiUri":"api/report/reportdetail?booking_id=?",
+                "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                    "booking_id": "예약 아이디",
+                    "image_num": "화상번호",
+                    "patient_name": "환자 이름",
+                    "patient_gender":  "환자성별",
+                    "patient_type": "환자형태",
+                    "patient_age": "환자나이",
+                    "license_num": "신분중번호",
+                    "booking_status": "예약상태",
+                    "hospital_name": "접수한 병원이름",
+                    "check_list":{
+                        "checkup_equipment": "검사설비",
+                        "checkup_status":"검사상태",
+                        "checkup_item":"검사부위"  ,
+                        "checkup_cost": "검사비용"
+                        },
+                    "req_doctor_name": "예약의사이름",
+                    "report_doc_name": "보고서작성의사이름",
+                    "doctor_name":  "심의한 의사이름",
+                    "Imaging_performance":"영상소견",
+                    "clinical_diagnosis":"림상학적진단",
+                    "pastInfo": {
+                        "booking_id": "예약 아이디",
+                        "image_num": "화상번호",
+                        "check_list":{
+
+                            "checkup_equipment": "검사설비",
+                            "checkup_status":"검사상태",
+                            "checkup_item":"검사부위",
+                            "checkup_cost": "검사비용"
+                        },
+                        "checked_time":  "검사예약시간",
+                        "req_doctor_name": "예약의사이름"
+                    }
+                }
+
+            },
+            "보고서리스트(검색포함)":{
+                "apiUri":"api/report/reportlist?report_doc_name=&patient_source&booking_stauts&deliberation_time&(delistarttime, deliendtime)&report_time&(reportstarttime, reportendtime)",
+                "return":"report_doc_name 필수, 만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                    "booking_id": "예약 아이디",
+                    "image_num": "화상번호",
+                    "patient_name": "환자 이름",
+                    "patient_gender":  "환자성별",
+                    "patient_type": "환자형태",
+                    "patient_age": "환자나이",
+                    "license_num": "신분중번호",
+                    "booking_status": "예약상태",
+                    "hospital_name": "접수한 병원이름"
+                }
+            }
+
+        }
+    },
+    "나의 보고서리스트(검색포함)":{
+      "apiUri":"api/report/myreportlist?booking_stauts&deliberation_time&(delistarttime, deliendtime)&report_time&(reportstarttime, reportendtime)",
+      "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+      "data":{
+          "booking_id": "예약 아이디",
+          "image_num": "화상번호",
+          "patient_name": "환자 이름",
+          "patient_gender":  "환자성별",
+          "patient_type": "환자형태",
+          "patient_age": "환자나이",
+          "license_num": "신분중번호",
+          "booking_status": "예약상태",
+          "hospital_name": "접수한 병원이름"
+      }
+  },
+
+    "심의리스트페지":{
+        "apiList":{
+            "심의서 상세보기":{
+                "apiUri":"api/report/deliberationDetial?report_id=",
+                "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                    "booking_id": "예약 아이디",
+                    "image_num": "화상번호",
+                    "patient_name": "환자 이름",
+                    "patient_gender":  "환자성별",
+                    "patient_type": "환자형태",
+                    "patient_age": "환자나이",
+                    "deliberation_content": "심의 내용",
+                    "booking_status": "예약상태",
+                    "hospital_name": "접수한 병원이름",
+                    "req_doctor_name": "예약의사이름",
+                    "report_doc_name": "보고서작성의사이름",
+                    "doctor_name":  "심의한 의사이름",
+                    "Imaging_performance":"영상소견",
+                    "clinical_diagnosis":"림상학적진단"
+                }
+
+            },
+            "심의서리스트(검색포함)":{
+                "apiUri":"api/report/deliberationlist?booking_stauts&deliberation_time&(delistarttime, deliendtime)&report_time&(reportstarttime, reportendtime)",
+                "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                    "booking_id": "예약 아이디",
+                    "image_num": "화상번호",
+                    "patient_name": "환자 이름",
+                    "patient_gender":  "환자성별",
+                    "patient_type": "환자형태",
+                    "patient_age": "환자나이",
+                    "license_num": "신분중번호",
+                    "booking_status": "예약상태",
+                    "hospital_name": "접수한 병원이름"
+
+                }
+            },
+            "보고서작성(들어갈때)":{
+                "apiUri":"api/report/reportingview?booking_id=",
+                "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                    "booking_id": "예약 아이디",
+                    "image_num": "화상번호",
+                    "patient_name": "환자 이름",
+                    "patient_gender":  "환자성별",
+                    "patient_type": "환자형태",
+                    "patient_age": "환자나이",
+                    "license_num": "신분중번호",
+                    "booking_status": "예약상태",
+                    "hospital_name": "접수한 병원이름",
+                    "check_list":{
+                        "checkup_equipment": "검사설비",
+                        "checkup_status":"검사상태",
+                        "checkup_item":"검사부위"  ,
+                        "checkup_cost": "검사비용"
+                    }
+                }
+            },
+            "심의서작성요청":{
+                "apiUri":"api/report/deliberation?report_id=&deliberation_id=",
+                "return":"만일 성공하면 ture, 아니면 false값을 반환한다(deliberation_id==null이면 새로작성, 아니면 갱신)",
+                "data":{
+                    "report_id": "예약 아이디",
+                    "doctor_name": "심의서작성의사",
+                    "deliberation_content": "심의내용",
+                    "booking_stauts": "만일 심의가 통과되면 4 그렇지 않으면 5"
+                }
+            },
+            "다이콤화상리스트보기":{
+                "apiUri":"api/report/dicomListView?image_num=",
+                "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+                "data":{
+                    "dicom":"다이콤화상"
+                }
+            },
+            "원격협의체계리스트":{
+              "apiurl":"api/remote/remoteList?contact_status=&submit_time=",
+              "response-Data":{
+                "patient_name":"환자이름",
+                "patient_gender":"환자성별",
+                "patient_age":"환자나이",
+                "contact_status":"원격상담상태",
+                "contact_type":"만일 1이면 원격 협의, 아니면 원격문진",
+                "patient_id":"예약아이디",
+                "contact_id":"원격상담아이디"
+              }
+            }
+        }
+    },
+    "보고서 원격상담":{
+        "apiReportRemote":{
+            "apiUri":"api/remote/reportremoteView?image_num=",
+            "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+            "data":{
+                "image_num":"이미지 번호",
+                "patient_name":"환자이름",
+                "patient_gender":"환자성별",
+                "patient_age":"환자나이",
+                "license_num":"신분증 번호"
+            }
+        }
+    },
+
+    "원격 상담 검토":{
+        "apiReportRemote":{
+            "apiUri":"api/remote/remoteReviewList",
+            "return":"만일 성공하면 자료를 돌려주고 아니면 null값을 반환한다",
+            "data":{
+                "patient_name":"환자이름",
+                "patient_gender":"환자성별",
+                "patient_age":"환자나이",
+                "license_num":"신분증 번호",
+                "contact_status":"원격상담상태",
+                "contact_type":"만일 1이면 원격 협의, 아니면 원격문진",
+                "patient_id":"예약아이디",
+                "contact_id":"원격상담아이디"
+            }
+        }
+    },
+    "원격상담 검토 제출":{
+        "apiurl":"urlRomoteReviewListSave",
+        "return":"성공하면 1 그렇지 않으면 false",
+        "data":{
+          "image_num":"예약 아이디",
+          "mem_doc_id":"의사 아이디",
+          "set_check_date":"예약 아이디",
+          "set_check_time":"예약 아이디",
+          "control_time":"예약상태",
+          "control_date":"조종시간 ",
+          "notPass_cause":"불통과 원인"
+        }
+    },
+
+    "온라인 비데오 교육":{
+        "apiurl":"/api/study/studyList",
+        "return":"성공하면 1 그렇지 않으면 false",
+        "data":{
+          "lession_title":"강의 제목",
+          "lession_doctor":"강의 의사 아이디",
+          "lession_doctor_name":"강의 의사 이름",
+          "start_time":"시작시간",
+          "lession_class":"강의 분야"
+        }
+    },
+
+    "dicom 화상 목록":{
+        "apiurl":"api/report/dicomimg_list?patient_id='",
+        "return":{
+            "dicomlistdata":{
+                "series_type":"시어리즈_타입",
+                "img_number":"화상 개수",
+                "daicom_list_data":{
+                    "patient_name":"환자이름",
+                    "patient_age":"환자나이",
+                    "hospital_name":"접수한 병원이름",
+                    "crate_time":"파일생성 날자" ,
+                    "studyUID":"study uid",
+                    "seriesUID":"서리즈 uid ",
+                    "objectUID":"오브젝트 uid",
+                    "contentType":"콘텐츠 타입"
+                }
+            }
+
+        }
+
+    },
+
+    "댓글 목록":{
+        "apiurl":"api/study/urlStduyDiscussList",
+        "return":
+            {
+                "author":"작성자",
+                "createdate":"작성날자",
+                "title":"댓글 제목",
+                "number":"코멘트 개수",
+                "comment":
+                {
+                    "name":"코멘트 작성자 이름",
+                    "content":"내용"
+                }
+
+            }
+    },
+
+    "댓글 추가":{
+        "apiurl":"api/study/savePost",
+        "request":{
+            "pst_title":"제목",
+            "pst_content":"내용",
+            "post_id":"만일 있으면 갱신 없으면 추가 "
+
+        },
+        "return":
+            {
+
+
+            }
+    },
+
+    "댓글 삭제":{
+        "apiurl":"api/study/urlDeletePost",
+        "request":{
+            "post_id":"댓글 아이디 "
+
+        },
+        "response":
+            {
+
+
+            }
+    },
+
+    "코멘트 삭제":{
+        "apiurl":"api/study/urlDeleteComment",
+        "request":{
+            "comment_id":"코멘트 아이디"
+        },
+        "response":
+            {
+
+
+            }
+    },
+    "코멘트 추가":{
+        "apiurl":"api/study/saveComment",
+        "request":{
+            "cmt_content":"내용",
+            "cmt_pst_id":"댓글 아이디",
+            "post_id":"만일 있으면 갱신 없으면 추가"
+
+        },
+        "return":
+            {
+
+
+            }
+    },
+
+    "등록 통계":{
+        "apiurl":"api/statistics/urlStatisticsPatient",
+        "request":{
+            "date_type":"날자형태",
+            "date_Part":"날자 정보",
+            "hospital_name":"등록한 병원",
+            "source_type":"환자 형태",
+            "chat_type":"차드 형태, 일별, 월별"
+
+        },
+        "주의":" 만일 검색 날자 범위가 크면 적당히 현시 하시오 ",
+        "response":
+            {
+                "Patientdata":{
+                    "data":"날자 정보에 해당한 환자정보",
+                    "date":"날자 정보"
+                },
+                "hospital":"병원 이름 정보"
+
+            }
+
+    },
+
+    "보고서 통계":{
+        "apiurl":"api/statistics/urlStatisticsReport",
+        "request":{
+            "date_type":"날자형태",
+            "date_Part":"날자 정보",
+            "hospital_name":"등록한 병원",
+            "device_type":"설비 형태",
+            "chat_type":"차드 형태, 일별, 월별"
+
+        },
+        "주의":" 만일 검색 날자 범위가 크면 적당히 현시 하시오 ",
+        "response":
+            {
+                "Patientdata":{
+                    "data":"날자 정보에 해당한 환자정보",
+                    "date":"날자 정보"
+                },
+                "hospital":"병원 이름 정보"
+
+            }
+    },
+
+
+    "상담 통계":{
+        "apiurl":"api/statistics/urlStatisticsRemote",
+        "request":{
+            "date_type":"날자형태",
+            "date_Part":"날자 정보",
+            "hospital_name":"등록한 병원",
+            "remote_type":"상담 형태",
+            "chat_type":"차드 형태, 일별, 월별"
+
+        },
+        "주의":" 만일 검색 날자 범위가 크면 적당히 현시 하시오 ",
+        "response":
+            {
+                "Patientdata":{
+                    "data":"날자 정보에 해당한 환자정보",
+                    "date":"날자 정보"
+                },
+                "hospital":"병원 이름 정보"
+
+            }
+    },
+
+    "병원 목록":{
+        "apiurl":"api/statistics/urlStatisticsHospital",
+        "request":{},
+        "response":
+            {
+                "hospital_name":"권한이 부여된 병원 이름"
+
+            }
+
+    },
+
+    "상담 세부정보":{
+        "apiurl":"api/remote/remotedetail",
+        "request":{
+
+        },
+        "response":
+            {
+                "hospital_name":"권한이 부여된 병원 이름"
+            }
+
+    },
+
+    "보고서템플릿 장치목록":{
+        "apiurl":"api/report/urltemplateDevice",
+        "request":{},
+        "response":
+            {
+                "template_device":"장치이름",
+                "template_class":{
+                    "template_class_name":"인체부위 이름",
+                    "template_class_id":"인체부위 식별자"
+                }
+            }
+    },
+
+    "보고서템플릿 인체세부부위목록":{
+        "apiurl":"api/report/urltemplateSubClass",
+        "request":{
+            "template_device":"장치이름",
+            "template_class_id":"인체부위 식별자"
+        },
+        "response":
+            {
+                "template_subclass_name":"세부부위 이름",
+                "template_subclass_id":"세부부위 식별자"
+            }
+    },
+    "보고서템플릿 내용":{
+        "apiurl":"api/report/urltemplateContent",
+        "request":{
+            "template_device":"장치이름",
+            "template_class_id":"인체부위 식별자",
+            "template_subclass_id":"세부부위 식별자"
+        },
+        "response":
+            {
+                "template_content_id":"템플릿 식별번호",
+                "template_content_title":"템플릿 제목",
+                "template_content_image":"영상 소견",
+                "template_content_suggestion":"건의 사항"
+            }
+    },
+
+    "보고서 템플릿 부분 범주 추가및 편집":{
+        "apiurl":"api/report/urltemplateSubClassEdit",
+        "request1":{
+            "template_device":"장치이름",
+            "template_class_id":"인체 부위",
+            "template_subclass_id":"세부부위 아이디",
+            "template_subclass_name":"세부부위"
+        },
+        "response":
+            {
+
+            }
+    },
+    "보고서 템플릿 내용 추가및 편집":
+    {
+        "apiurl":"api/report/urltemplateContentEdit",
+        "request2":{
+            "template_device":"장치이름",
+            "template_class_id":"인체부위 아이디" ,
+            "template_subclass_id":"세부부위",
+            "template_content_id":"템플릿 식별번호",
+            "template_content_title":"템플릿 제목",
+            "template_content_image":"영상 소견",
+            "template_content_suggestion":"건의 사항",
+            "template_content_checkup":"체크압 사항"
+        }
+    },
+    "보고서 템플릿부분범주 삭제":{
+        "apiurl":"api/report/urltemplateSubClassRemove",
+        "request1":{
+            "template_subclass_id":"세부부위 식별자"
+        },
+        "response":
+            {
+
+            }
+    },
+
+
+    "보고서 템플릿 내용 삭제":
+    {
+        "apiurl":"api/report/urltemplateContentRemove",
+        "request2":{
+            "template_content_id":"템플릿 식별자"
+        },
+        "response":
+            {
+
+            }
+    },
+
+
+
+
+
+    "공유할 병원폴더 목록":{
+        "apiurl":"api/study/urlStduyDataShareHospitalList",
+        "request":{
+        },
+        "response":
+            {
+                "hospital_folder":"유저가 해당되는 병원폴더"
+            }
+    },
+
+    "공유 폴더 목록":{
+        "apiurl":"api/study/urlStduyDataShareList",
+        "request":{
+            "folder_path":"폴더경로"
+        },
+        "response":
+            {
+                "share_name":"공유대상 이름",
+                "shaer_type":"대상 형태"
+            }
+    },
+
+    "공유폴터 만들기":{
+        "apiurl":"api/study/urlStduyMakeDataShare",
+        "request":
+            {
+                "folder_path":"만들어질 폴더 경로",
+                "folder_name":"공유폴더이름"
+            },
+        "response":{
+               "result":"성공 실패값을 되돌린다 0:성공, 1:실패",
+               "error":"실패일경우 실패 리유를 내려 보낸다."
+        }
+    },
+
+
+    "공유파일 삭제":{
+        "apiurl":"api/study/urlStduyRemoveDataShare",
+        "request":
+            {
+                "folder_path_name":"삭제할 경로와 폴더및 파일이름"
+            },
+        "response":{
+               "result":"성공 실패값을 되돌린다 0:성공, 1:실패",
+               "error":"실패일경우 실패 리유를 내려 보낸다."
+        }
+    },
+
+    "공유파일 리네임":{
+        "apiurl":"api/study/urlStduyRenameDataShare",
+        "request":
+            {
+                "data_path":"데이터의 경로",
+                "preve_name":"이전의 이름",
+                "change_name":"변경할 이름"
+            },
+        "response":{
+               "result":"성공 실패값을 되돌린다 0:성공, 1:실패",
+               "error":"실패일경우 실패 리유를 내려 보낸다."
+        }
+    },
+
+    "공유 파일 업로드":{
+        "apiurl":"api/study/StduyDataShareListContent",
+        "request":
+            {
+                "uploadfilename":"공유파일제목",
+                "data_path":"파일경로"
+            },
+        "response":{
+            "result":"성공 실패값을 되돌린다 0:성공, 1:실패",
+            "error":"실패일경우 실패 리유를 내려 보낸다."
+        }
+    },
+
+    "공유 파일 다운로드":{
+        "apiurl":"api/study/StduyDataShareDownload",
+        "request":
+            {
+                "data_path":"파일경로"
+            },
+        "response":{
+
+        }
+    },
+
+    "환자 보고서 리스트":{
+        "apiurl":"api/study/ReportPatientList",
+        "request":
+            {
+            },
+        "response":
+            {                        
+                "booking_id":"예약 아이디",
+                "booking_status":"예약상태",
+                "hospital_name":"권한이 부여된 병원 이름",
+                "image_num":"이미지 번호",
+                "license_num":"신분중번호",
+                "patient_age":"환자나이",
+                "patient_gender":"환자성별",
+                "patient_name":"환자 이름",
+                "patient_type":"환자형태"
+            }
+    }
+
+}

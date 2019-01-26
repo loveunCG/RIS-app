@@ -1,0 +1,54 @@
+<!--
+  Generated template for the ReportReviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>报告审核</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-footer>
+    <div class="bottom_bar">
+        约{{report_list.length}}名
+    </div>
+</ion-footer>
+
+<ion-content padding>
+    <ion-grid>
+      <ion-row>
+          <ion-searchbar [(ngModel)]="inpFilter" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+          </ion-searchbar>
+      </ion-row>
+      <ion-row class="buttons">
+        <ion-col><button ion-button color="primary2" (click)='onFilterSubmit()'>未审核</button></ion-col>
+        <ion-col><button ion-button color="primary3" (click)='onFilterPassed()'>审核通过</button></ion-col>
+        <ion-col><button ion-button color="primary4" (click)='onFilterNoPassed()'>未通过</button></ion-col>
+        <ion-col></ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+      <ion-row text-center class="duration m-b-10">
+          <from-to-date title="提交时间" #submitDuration></from-to-date>
+          <!-- 提交时间 :&nbsp;<input type="text" #submitstart >&nbsp;至&nbsp;<input type="text" #submitend> -->
+      </ion-row>
+      <ion-row text-center class="duration">
+          <from-to-date title="审核时间" #examDuration></from-to-date>
+          <!-- 审核时间 :&nbsp;<input type="text" #examstart>&nbsp;至&nbsp;<input type="text" #examend> -->
+      </ion-row>
+    </ion-grid>
+    <button ion-button round block color="primary2" class="btn-primary" (click)='onSearch()'>查 询</button>
+
+    <ion-list class="patients">
+      <ion-item *ngFor = "let user of this.report_list" (click)='onClickUser(user.pb_report_id)'>
+        <user-item strName="{{user.patient_name}}"
+                  strSex="{{user.patient_gender==1?'male':'female'}}"
+                  nAge={{user.patient_age}}
+                  strStatus="{{aryStatus[user.booking_status]}}"
+                  >
+        </user-item>
+      </ion-item>
+    </ion-list>
+</ion-content>

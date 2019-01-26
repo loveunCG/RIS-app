@@ -1,0 +1,57 @@
+page-study-online-room {
+    
+    .divcidoe{
+        margin:0.8em auto;
+        width: 95%;
+        height: 16.6em;
+        background-color: rgb(170, 162, 162);
+        border: 1px solid rgb(70, 68, 68);
+        border-radius: 3px;
+
+        video{
+            border-radius: 5px;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            left: 0;
+            height: 16.5em;
+        }
+    }
+
+
+
+
+
+    .info-box{
+        margin:0.8em auto;
+        width: 95%;
+        .title{
+            border: 1px solid #AAA;
+            background-color: $primary-color;
+            height: 1.5em;
+            text-align: center;
+            vertical-align: center;
+            font-size: 18px;
+        }
+        .content{            
+            border: 1px solid #AAA;
+            height: 30vh;
+            overflow: auto;
+            p{
+                margin-left: 10px
+            }
+        }
+    }
+
+    .message-input{
+        margin-top: 5px;
+        border: 1px solid #AAA;
+        height: 2.8em;
+        width: 100%;
+    }
+
+    .message-button{
+        height: 2.8em;
+        width: 95%;
+    }
+}

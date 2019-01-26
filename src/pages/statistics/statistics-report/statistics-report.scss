@@ -1,0 +1,36 @@
+page-statistics-report {
+    ion-navbar button .button-inner{
+        font-size:12px;
+        padding: 0 10px;
+    }
+    ion-navbar .bar-button{
+        border-radius: 5px;
+    }
+
+    .labvel{
+        width: 100%;
+        height: 3vh;
+    }
+
+    .select_date{
+        width: 100%;
+        height: 7vh;
+    }
+    
+    .graph_content{
+        width: 100%;
+        height: 45vh;
+    }
+
+    ::-webkit-scrollbar{
+        display:none;
+      }
+
+    .part{
+        height: 10vh;
+    }
+    .date{
+        border-radius: 5px;
+    }
+
+}

@@ -1,0 +1,123 @@
+<!--
+  Generated template for the ReportUserDetailImagePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Dicom 图像</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="backround">
+    <button ion-button [disabled]="!selflag" style="margin-top:10px; margin-left:10px; background-color:rgb(71, 88, 83) " (click)="viewtool()">
+        工具选择
+    </button>
+    <ion-grid *ngIf="toolflag" style="width:95%">
+        <ion-row wrap>
+          <ion-col>
+            <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="enableWindowLevelTool()">
+              <i class="fa fa-adjust"></i>
+            </button>
+          </ion-col> 
+          <ion-col>
+            <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="pan()">
+              <i class="fa fa-arrows"></i>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="zoomPinch()">
+                <i class="fa fa-search-plus"></i>
+            </button>
+          </ion-col>
+          <ion-col>
+              <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="zoomDrag()">
+                  <i class="fa fa-compass"></i>
+                </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="circleroi()">
+              <i class="fa fa-circle-thin"></i>
+            </button>
+          </ion-col>
+          <ion-col>
+              <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="probe()">
+                <i class="fa fa-map-marker"></i>
+              </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="rectangleroi()">
+              <i class="fa fa-square-o"></i>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="angle()">
+              <i class="fa fa-retweet"></i>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="length()">
+                <i class="fa fa-i-cursor"></i>
+            </button>
+          </ion-col>
+          <ion-col>
+              <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="rotate()">
+                <i class="fa fa-rotate-left"></i>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button class="btn btn-primary btn-md" style="width:2.5em; background-color:rgb(132, 172, 170)" (click)="clearToolData()">
+                  <i class="fa fa-eraser"></i>
+              </button>
+              <!-- <button ion-button class="btn btn-primary btn-md" style="width:3em; background-color:rgb(132, 172, 170)" (click)="stackScroll()">
+                <i class="fa fa-exchange"></i>
+              </button> -->
+            </ion-col>
+            <ion-col>
+              <!-- <button ion-button class="btn btn-primary btn-md" style="width:3em; background-color:rgb(132, 172, 170)" (click)="clearToolData()">
+                <i class="fa fa-eraser"></i>
+              </button> -->
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+    <div ion-img id="dicomImage">
+    <div id="mrtopleft">
+    </div>
+    <div id="mrtopright" >
+    </div>
+    <div id="mrbottomright" >
+    </div>
+    <div id="mrbottomleft" >
+    </div> 
+  </div>
+  <ion-grid *ngIf="selflag" style="width:95%">
+      <ion-row wrap>
+        <ion-col>
+        </ion-col> 
+        <ion-col>
+        </ion-col>
+        <ion-col>
+        </ion-col>
+        <ion-col>
+        </ion-col>
+        <ion-col>
+            <button ion-button style="margin-top:1em; width:3em; background-color:rgb(122, 145, 141)" (click)="previous()">
+                <i class="fa fa-arrow-circle-left"></i>
+              </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button style="margin-top:1em; width:3em; background-color:rgb(122, 145, 141)" (click)="select()">
+            <i class="fa fa-file-image-o"></i>
+          </button>
+        </ion-col>
+        <ion-col>
+            <button ion-button style="margin-top:1em;; width:3em; background-color:rgb(122, 145, 141)" (click)="next()">
+              <i class="fa fa-arrow-circle-right"></i>
+            </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

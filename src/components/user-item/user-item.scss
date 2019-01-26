@@ -1,0 +1,48 @@
+user-item {
+    .user-item-content{
+        display: table;
+        width: 100%;
+        font-size: 13px;
+        table-layout: fixed;
+        .male{
+            background-color:#488aff;
+        }
+        .female{
+            background-color:#e6535b;
+        }
+        
+        .user-icon{
+            display: table-cell;            
+            vertical-align: middle;     
+            width: 14vw;
+            div{
+                width: 14vw;
+                height: 14vw;
+                border-radius:50%;
+                .fa{
+                    font-size: 8vw;
+                    color:#fff;
+                    margin-top: 3vw;
+                    margin-left:5vw;
+                }
+            }       
+        }
+        .user-info{
+            display: table-cell;
+            vertical-align: middle;
+            width: calc(100% - 14vw - 15vw);
+            padding: 0 0 0 10px;
+        }
+        .user-summary{
+            display: table-cell;
+            width: calc(100% - 44vw);
+            vertical-align: middle;
+        }
+        .user-status{
+            display: table-cell;
+            vertical-align: middle;
+            width: 15vw;
+            text-align: right;
+        }
+    }
+}

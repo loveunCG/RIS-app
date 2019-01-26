@@ -1,0 +1,59 @@
+<!--
+  Generated template for the TabHomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title >影像云</ion-title>
+    <ion-buttons end>
+        <button ion-button (click)="logout()" color="primary2">
+          <i class="fa fa-sign-out"  style="font-size:20px; margin-right:10px"></i>
+          <!-- <ion-icon  name="md-log-out" color="primary2" style="font-size:20px; margin-right:10px"></ion-icon> -->
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button block color="primary2" [disabled]="!report_flag" (click)='onReport()'>
+          <div>
+            <i class="fa fa-file-text-o"></i><br/><br/>
+            报告管理
+          </div>
+        </button>
+      </ion-col>
+      <ion-col col-6>        
+        <button ion-button block color="primary3" [disabled]="!remote_flag" (click)='onRemote()'>
+          <div>
+              <i class="fa fa-comments-o"></i><br/><br/>
+              远程协作
+          </div>          
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button block color="primary4" [disabled]="!data_share_flag" (click)='onStudy()'>
+            <div>
+                <i class="fa fa-users"></i><br/><br/>
+                学习交流
+            </div> 
+        </button>
+      </ion-col>
+      <ion-col col-6>
+        <button ion-button block color="primary5" [disabled]="!char_flag" (click)='onStatistics()'>
+            <div>
+                <i class="fa fa-bar-chart"></i><br/><br/>
+                数据统计
+            </div> 
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

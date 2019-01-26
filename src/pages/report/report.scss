@@ -1,0 +1,15 @@
+page-report {
+    #lbl_title{
+        color: $primary-color;
+        font-size:32px;
+        margin: 10vh auto;
+    }
+    ion-col .button{
+        border-radius:50%;
+        width:20vw;
+        height:20vw;
+        i{
+            font-size:30px;
+        }
+    }
+}

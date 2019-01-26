@@ -1,0 +1,24 @@
+<!--
+  Generated template for the ReportUserDetailImageListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>图像列表</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <ion-list class="patients">
+      <ion-item  *ngFor = "let item of this.dicomList" (click)="nextpage(item.studyUID,item.seriesUID ,item.objectUID)">
+          <ion-avatar item-start>
+              <img id="avata" src="http://120.55.63.29:5006/getDicom?operation=wado&studyUID={{item.studyUID}}&seriesUID={{item.seriesUID}}&objectUID={{item.objectUID[0].objectUID}}&contentType=application/jpge">
+            </ion-avatar>
+          <h2>{{item.studyMods}}({{item.objectUID.length}})</h2>
+          <!-- <button ion-button clear item-end></button> -->
+        </ion-item>
+  </ion-list>
+</ion-content>

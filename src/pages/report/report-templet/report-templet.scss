@@ -1,0 +1,18 @@
+page-report-templet {
+    ion-navbar ion-icon{
+        font-size: 30px;
+        color: $primary-color;
+    }
+    .buttons .col{
+        text-align:center;
+        padding: 6px 0;
+    }
+    .img-btns .segment-button{
+        height: auto;
+        padding: 10px;
+        div{
+            margin-top: -10px;
+            
+        }
+    }
+}
